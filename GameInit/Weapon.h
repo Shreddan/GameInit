@@ -1,12 +1,14 @@
 #pragma once
 #include "Item.h"
 
-class Weapon
+class Weapon : public Item
 {
 public:
 	Weapon();
 	Weapon();
 	~Weapon();
+
+	int GetType();
 
 private:
 
