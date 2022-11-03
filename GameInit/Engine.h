@@ -13,12 +13,13 @@ public:
 	Engine();
 	~Engine();
 
+	void Login();
+
 	bool Update();
 
 private:
 
-	
-
 	std::deque<Action> Actions;
+	std::string GameName;
 };
 
