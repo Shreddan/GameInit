@@ -5,10 +5,11 @@ class Player
 {
 public:
 
-	Player();
-	Player(int l, int hm, int mm, int str, int end, int wis, int intel);
+	//Player();
+	Player(std::string n, int l, int hm, int mm, int str, int end, int wis, int intel);
 	~Player();
 
+	//Base vars
 	std::string Name;
 	int Level;
 	int HealthMax;
@@ -16,6 +17,8 @@ public:
 	int ManaMax;
 	int Mana;
 
+
+	//
 	int Strength;
 	int Endurance;
 	int Wisdom;

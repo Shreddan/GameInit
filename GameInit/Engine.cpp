@@ -24,6 +24,7 @@ void Engine::Login()
 	std::cout << "3. Delete Character " << std::endl;
 	std::cout << "4. Help " << std::endl;
 	std::cout << "5. Quit " << std::endl;
+	std::cout << std::endl;
 
 	std::cin >> choice;
 	
@@ -36,6 +37,7 @@ void Engine::Login()
 		case 1:
 		{
 			CurrentPlayer = CreateChar();
+			DisplayChar();
 			break;
 		}
 		case 2:
@@ -85,13 +87,26 @@ bool Engine::Update()
 
 Player* Engine::CreateChar()
 {
-	
+
+#if _DEBUG
+	CurrentPlayer = new Player("Danicron", 1, 15, 10, 1, 1, 1, 1);
+#endif
+	return CurrentPlayer;
 }
 
 Player* Engine::LoadChar()
 {
+	return CurrentPlayer;
 }
 
 void Engine::DeleteChar()
 {
+}
+
+void Engine::DisplayChar()
+{
+	std::cout << CurrentPlayer->Name << std::endl;
+	std::cout << " Level : " << CurrentPlayer->Level  << std::endl;
+	std::cout << " Health : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax << std::endl;
+	std::cout << " Mana : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
 }

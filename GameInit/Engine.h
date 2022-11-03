@@ -13,12 +13,16 @@ public:
 	Engine();
 	~Engine();
 
+	//Main Engine Funcs
 	void Login();
 	bool Update();
 
+	//Player Funcs
 	Player* CreateChar();
 	Player* LoadChar();
 	void DeleteChar();
+
+	void DisplayChar();
 
 private:
 
