@@ -16,6 +16,9 @@ public:
 	bool Update();
 	void Choice(int choice);
 
+	void Prompt();
+	void Input();
+
 	//Player Funcs
 	Player* CreateChar();
 	Player* LoadChar();
@@ -25,6 +28,7 @@ public:
 
 private:
 
+	int State;
 	bool Playing;
 	std::string GameName;
 	Player* CurrentPlayer = nullptr;

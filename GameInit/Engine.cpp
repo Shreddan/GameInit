@@ -4,6 +4,7 @@ Engine::Engine()
 {
 	this->GameName = "IhaveNoIdeaYetButSoon";
 	this->Playing = false;
+	this->State = 0;
 }
 
 Engine::~Engine()
@@ -50,7 +51,8 @@ bool Engine::Update()
 {
 	while (Playing)
 	{
-		
+		Prompt();
+		Input();
 	}
 
 	return false;
@@ -89,6 +91,22 @@ void Engine::Choice(int choice)
 		break;
 	}
 	}
+}
+
+void Engine::Prompt()
+{
+	std::cout << "Level : " << CurrentPlayer->Level << " || Exp : " << CurrentPlayer->CurrentExp << "/" << CurrentPlayer->TNL;
+	std::cout << " || HP : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax;
+	std::cout << " || MP : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
+}
+
+void Engine::Input()
+{
+	switch (State)
+	{
+
+	}
+	
 }
 
 Player* Engine::CreateChar()

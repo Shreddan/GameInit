@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 class Player
 {
@@ -9,6 +10,7 @@ public:
 	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel);
 	~Player();
 
+//private:
 	//Base vars
 	std::string Name;
 	int Level;
@@ -18,6 +20,9 @@ public:
 	int Health;
 	int ManaMax;
 	int Mana;
+	int Encumbrance;
+	int x;
+	int y;
 
 	// Player Stats
 	int Strength;
@@ -25,7 +30,7 @@ public:
 	int Wisdom;
 	int Intelligence;
 
-	//Hidden vars
+	//Hidden vars 
 	int BaseDamage;
 	int BaseDefence;
 
