@@ -14,12 +14,17 @@ public:
 	~Engine();
 
 	void Login();
-
 	bool Update();
+
+	Player* CreateChar();
+	Player* LoadChar();
+	void DeleteChar();
 
 private:
 
+	bool Playing;
 	std::deque<Action> Actions;
 	std::string GameName;
+	Player* CurrentPlayer = nullptr;
 };
 
