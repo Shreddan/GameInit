@@ -27,6 +27,7 @@ void Engine::Login()
 	std::cout << std::endl;
 
 	std::cin >> choice;
+	std::cout << std::endl;
 	
 	switch (choice)
 	{
@@ -87,9 +88,8 @@ bool Engine::Update()
 
 Player* Engine::CreateChar()
 {
-
 #if _DEBUG
-	CurrentPlayer = new Player("Danicron", 1, 15, 10, 1, 1, 1, 1);
+	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1);
 #endif
 	return CurrentPlayer;
 }
@@ -106,7 +106,12 @@ void Engine::DeleteChar()
 void Engine::DisplayChar()
 {
 	std::cout << CurrentPlayer->Name << std::endl;
-	std::cout << " Level : " << CurrentPlayer->Level  << std::endl;
-	std::cout << " Health : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax << std::endl;
-	std::cout << " Mana : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
+	std::cout << "Level : " << CurrentPlayer->Level  << std::endl;
+	std::cout << "Experience : " << CurrentPlayer->CurrentExp << "/" << CurrentPlayer->TNL << std::endl;
+	std::cout << "Health : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax << std::endl;
+	std::cout << "Mana : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
+	std::cout << "Strength : " << CurrentPlayer->Strength << std::endl;
+	std::cout << "Endurance : " << CurrentPlayer->Endurance << std::endl;
+	std::cout << "Wisdom : " << CurrentPlayer->Wisdom << std::endl;
+	std::cout << "Intelligence : " << CurrentPlayer->Intelligence << std::endl;
 }

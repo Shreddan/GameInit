@@ -4,10 +4,12 @@
 //{
 //}
 
-Player::Player(std::string n, int l, int hm, int mm, int str, int end, int wis, int intel)
+Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel)
 {
 	this->Name = n;
 	this->Level = l;
+	this->CurrentExp = exp;
+	this->TNL = Level * 1.2 + 4;
 	this->HealthMax = hm;
 	this->Health = this->HealthMax;
 	this->ManaMax = mm;
