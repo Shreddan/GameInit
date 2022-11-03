@@ -30,6 +30,7 @@ void Engine::Login()
 	std::cin >> choice;
 	std::cout << std::endl;
 
+	Sleep(400);
 	Choice(choice);
 
 	if (CurrentPlayer != nullptr)
@@ -114,10 +115,14 @@ void Engine::Prompt()
 			std::cout << std::endl;
 
 			std::cin >> choice;
+			std::cout << std::endl;
 			Input(choice);
+			
 			break;
 		}
 	}
+
+	Sleep(400);
 
 }
 
@@ -146,6 +151,7 @@ void Engine::Input(int c)
 				{
 					State = 0;
 					CurrentPlayer = nullptr;
+					Sleep(500);
 					Login();
 				}
 			}

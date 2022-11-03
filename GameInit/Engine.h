@@ -2,6 +2,8 @@
 
 #include <iostream>	
 #include <iomanip>
+#include <thread>
+#include <windows.h>
 #include "Action.h"
 #include "Player.h"
 
