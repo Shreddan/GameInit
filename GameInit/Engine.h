@@ -2,8 +2,6 @@
 
 #include <iostream>	
 #include <iomanip>
-#include <deque>
-
 #include "Action.h"
 #include "Player.h"
 
@@ -16,6 +14,7 @@ public:
 	//Main Engine Funcs
 	void Login();
 	bool Update();
+	void Choice(int choice);
 
 	//Player Funcs
 	Player* CreateChar();
@@ -27,7 +26,6 @@ public:
 private:
 
 	bool Playing;
-	std::deque<Action> Actions;
 	std::string GameName;
 	Player* CurrentPlayer = nullptr;
 };

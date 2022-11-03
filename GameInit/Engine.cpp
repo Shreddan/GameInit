@@ -28,38 +28,8 @@ void Engine::Login()
 
 	std::cin >> choice;
 	std::cout << std::endl;
-	
-	switch (choice)
-	{
-		default:
-		{
-			break;
-		}
-		case 1:
-		{
-			CurrentPlayer = CreateChar();
-			DisplayChar();
-			break;
-		}
-		case 2:
-		{
-			CurrentPlayer = LoadChar();
-			break;
-		}
-		case 3:
-		{
-			DeleteChar();
-			break;
-		}
-		case 4:
-		{
-			break;
-		}
-		case 5:
-		{
-			break;
-		}
-	}
+
+	Choice(choice);
 
 	if (CurrentPlayer != nullptr)
 	{
@@ -80,10 +50,45 @@ bool Engine::Update()
 {
 	while (Playing)
 	{
-		return true;
+		
 	}
 
 	return false;
+}
+
+void Engine::Choice(int choice)
+{
+	switch (choice)
+	{
+	default:
+	{
+		break;
+	}
+	case 1:
+	{
+		CurrentPlayer = CreateChar();
+		DisplayChar();
+		break;
+	}
+	case 2:
+	{
+		CurrentPlayer = LoadChar();
+		break;
+	}
+	case 3:
+	{
+		DeleteChar();
+		break;
+	}
+	case 4:
+	{
+		break;
+	}
+	case 5:
+	{
+		break;
+	}
+	}
 }
 
 Player* Engine::CreateChar()
