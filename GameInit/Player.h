@@ -19,17 +19,15 @@ public:
 	int ManaMax;
 	int Mana;
 
-	//Hidden vars
-	int BaseDamage;
-	int BaseDefence;
-
-
-
 	// Player Stats
 	int Strength;
 	int Endurance;
 	int Wisdom;
 	int Intelligence;
+
+	//Hidden vars
+	int BaseDamage;
+	int BaseDefence;
 
 };
 

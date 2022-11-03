@@ -114,4 +114,12 @@ void Engine::DisplayChar()
 	std::cout << "Endurance : " << CurrentPlayer->Endurance << std::endl;
 	std::cout << "Wisdom : " << CurrentPlayer->Wisdom << std::endl;
 	std::cout << "Intelligence : " << CurrentPlayer->Intelligence << std::endl;
+	std::cout << std::endl;
+
+#if _DEBUG
+	std::cout << "BaseDamage : " << CurrentPlayer->BaseDamage << std::endl;
+	std::cout << "BaseDefence : " << CurrentPlayer->BaseDefence << std::endl;
+	std::cout << std::endl;
+#endif // _DEBUG
+
 }
