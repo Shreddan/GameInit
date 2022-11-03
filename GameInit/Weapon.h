@@ -1,4 +1,6 @@
 #pragma once
+#include "Item.h"
+
 class Weapon
 {
 public:
@@ -9,6 +11,7 @@ public:
 private:
 
 	int Type;
+	int DamageType;
 	int BaseDamage;
 	int Effect1;
 	int Effect2;
