@@ -2,6 +2,9 @@
 #include <string>
 #include <vector>
 
+#include "Weapon.h"
+#include "Armour.h"
+
 class Player
 {
 public:
@@ -33,6 +36,8 @@ public:
 	//Hidden vars 
 	int BaseDamage;
 	int BaseDefence;
+
+	std::vector<Item> Inventory;
 
 };
 

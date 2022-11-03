@@ -17,7 +17,7 @@ public:
 	void Choice(int choice);
 
 	void Prompt();
-	void Input();
+	void Input(int c);
 
 	//Player Funcs
 	Player* CreateChar();

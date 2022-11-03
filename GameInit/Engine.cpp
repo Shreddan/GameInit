@@ -52,7 +52,6 @@ bool Engine::Update()
 	while (Playing)
 	{
 		Prompt();
-		Input();
 	}
 
 	return false;
@@ -62,49 +61,96 @@ void Engine::Choice(int choice)
 {
 	switch (choice)
 	{
-	default:
-	{
-		break;
-	}
-	case 1:
-	{
-		CurrentPlayer = CreateChar();
-		DisplayChar();
-		break;
-	}
-	case 2:
-	{
-		CurrentPlayer = LoadChar();
-		break;
-	}
-	case 3:
-	{
-		DeleteChar();
-		break;
-	}
-	case 4:
-	{
-		break;
-	}
-	case 5:
-	{
-		break;
-	}
+		default:
+		{
+			break;
+		}
+		case 1:
+		{
+			CurrentPlayer = CreateChar();
+			DisplayChar();
+			State = 1;
+			break;
+		}
+		case 2:
+		{
+			CurrentPlayer = LoadChar();
+			State = 1;
+			break;
+		}
+		case 3:
+		{
+			DeleteChar();
+			break;
+		}
+		case 4:
+		{
+			break;
+		}
+		case 5:
+		{
+			Playing = false;
+			break;
+		}
 	}
 }
 
 void Engine::Prompt()
 {
+	int choice = 0;
 	std::cout << "Level : " << CurrentPlayer->Level << " || Exp : " << CurrentPlayer->CurrentExp << "/" << CurrentPlayer->TNL;
 	std::cout << " || HP : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax;
 	std::cout << " || MP : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
+	std::cout << std::endl;
+
+	switch (State)
+	{
+		case 1:
+		{
+			std::cout << "1. Character Screen" << std::endl;
+			std::cout << "2. Inventory" << std::endl;
+			std::cout << "3. Skill Screen" << std::endl;
+			std::cout << "4. Quit to Main Menu" << std::endl;
+			std::cout << std::endl;
+
+			std::cin >> choice;
+			Input(choice);
+			break;
+		}
+	}
+
 }
 
-void Engine::Input()
+void Engine::Input(int c)
 {
 	switch (State)
 	{
-
+		case 1:
+		{
+			switch (c)
+			{
+				case 1:
+				{
+					DisplayChar();
+					break;
+				}
+				case 2:
+				{
+					break;
+				}
+				case 3:
+				{
+					break;
+				}
+				case 4:
+				{
+					State = 0;
+					CurrentPlayer = nullptr;
+					Login();
+				}
+			}
+			break;
+		}
 	}
 	
 }
