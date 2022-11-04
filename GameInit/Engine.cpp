@@ -191,27 +191,27 @@ void Engine::DisplayRoom()
 	std::cout << CurrentRoom->desc << std::endl;
 
 	std::cout << "Exits : ";
-	if (CurrentRoom->Exits[0] = 1)
+	if (CurrentRoom->Exits[0] == 1)
 	{
 		std::cout << "North ,";
 	}
-	if (CurrentRoom->Exits[1] = 1)
+	if (CurrentRoom->Exits[1] == 1)
 	{
 		std::cout << "East ,";
 	}
-	if (CurrentRoom->Exits[2] = 1)
+	if (CurrentRoom->Exits[2] == 1)
 	{
 		std::cout << "South ,";
 	}
-	if (CurrentRoom->Exits[3] = 1)
+	if (CurrentRoom->Exits[3] == 1)
 	{
 		std::cout << "West ,";
 	}
-	if (CurrentRoom->Exits[4] = 1)
+	if (CurrentRoom->Exits[4] == 1)
 	{
 		std::cout << "Up ,";
 	}
-	if (CurrentRoom->Exits[5] = 1)
+	if (CurrentRoom->Exits[5] == 1)
 	{
 		std::cout << "Down";
 	}
