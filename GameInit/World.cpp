@@ -1,7 +1,10 @@
 #include "World.h"
 
-World::World()
+World::World(std::string n)
 {
+	this->Name = n;
+
+	Areas.emplace_back()
 }
 
 World::~World()

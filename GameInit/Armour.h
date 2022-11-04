@@ -7,6 +7,8 @@ public:
 	~Armour();
 
 	int GetType();
+	int GetDefenceValue();
+	int GetWeightValue();
 
 private:
 

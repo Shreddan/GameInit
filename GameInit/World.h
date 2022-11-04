@@ -4,7 +4,7 @@
 class World
 {
 public:
-	World();
+	World(std::string n);
 	~World();
 
 	std::string Name;

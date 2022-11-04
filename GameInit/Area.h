@@ -4,9 +4,10 @@
 class Area
 {
 public:
-	Area();
+	Area(std::string n);
 	~Area();
 
+	std::string Name;
 	std::vector<Room> Rooms;
 };
 
