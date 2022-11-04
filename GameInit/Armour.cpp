@@ -1,6 +1,6 @@
 #include "Armour.h"
 
-Armour::Armour()
+Armour::Armour(int t, int d, int w)
 {
 }
 

@@ -3,7 +3,6 @@
 class Armour : public Item
 {
 public:
-	Armour();
 	Armour(int t, int d, int w);
 	~Armour();
 

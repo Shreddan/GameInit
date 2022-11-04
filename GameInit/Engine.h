@@ -4,8 +4,13 @@
 #include <iomanip>
 #include <thread>
 #include <windows.h>
+
+#define WIN32_LEAN_AND_MEAN
+
 #include "Action.h"
 #include "Player.h"
+#include "World.h"
+
 
 class Engine
 {
@@ -34,5 +39,6 @@ private:
 	bool Playing;
 	std::string GameName;
 	Player* CurrentPlayer = nullptr;
+	World* World = nullptr;
 };
 

@@ -10,10 +10,10 @@ class Player
 public:
 
 	//Player();
-	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel);
+	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc = 0);
 	~Player();
 
-//private:
+//TODO : Make private and add Getters/Setters
 	//Base vars
 	std::string Name;
 	int Level;
@@ -23,9 +23,8 @@ public:
 	int Health;
 	int ManaMax;
 	int Mana;
-	int Encumbrance;
-	int x;
-	int y;
+	//int Encumbrance;
+	int Location;
 
 	// Player Stats
 	int Strength;
@@ -38,6 +37,7 @@ public:
 	int BaseDefence;
 
 	std::vector<Item> Inventory;
+	std::vector<Item> Equipped;
 
 };
 
