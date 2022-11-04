@@ -4,7 +4,7 @@
 //{
 //}
 
-Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc = 0)
+Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc)
 {
 	this->Name = n;
 	this->Level = l;
@@ -15,7 +15,7 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 	this->ManaMax = mm;
 	this->Mana = this->ManaMax;
 	//this->Encumbrance = 
-	this->Location = 0;
+	this->Location = loc;
 
 	this->Strength = str;
 	this->Endurance = end;

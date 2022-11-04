@@ -68,6 +68,7 @@ void Engine::Choice(int choice)
 		}
 		case 1:
 		{
+			CurrentWorld = new World("CantThinkOfOneRightNowButSoon");
 			CurrentPlayer = CreateChar();
 			DisplayChar();
 			State = 1;
@@ -108,6 +109,11 @@ void Engine::Prompt()
 	{
 		case 1:
 		{
+			DisplayRoom();
+			break;
+		}
+		case 2:
+		{
 			std::cout << "1. Character Screen" << std::endl;
 			std::cout << "2. Inventory" << std::endl;
 			std::cout << "3. Skill Screen" << std::endl;
@@ -116,12 +122,11 @@ void Engine::Prompt()
 
 			std::cin >> choice;
 			std::cout << std::endl;
-			Input(choice);
 			
 			break;
 		}
 	}
-
+	Input(choice);
 	Sleep(400);
 
 }
@@ -164,7 +169,7 @@ void Engine::Input(int c)
 Player* Engine::CreateChar()
 {
 #if _DEBUG
-	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1);
+	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1, 0);
 #endif
 	return CurrentPlayer;
 }
@@ -176,6 +181,41 @@ Player* Engine::LoadChar()
 
 void Engine::DeleteChar()
 {
+}
+
+void Engine::DisplayRoom()
+{
+	Room* CurrentRoom = &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location];
+
+	std::cout << std::endl;
+	std::cout << CurrentRoom->desc << std::endl;
+
+	std::cout << "Exits : ";
+	if (CurrentRoom->Exits[0] = 1)
+	{
+		std::cout << "North ,";
+	}
+	if (CurrentRoom->Exits[1] = 1)
+	{
+		std::cout << "East ,";
+	}
+	if (CurrentRoom->Exits[2] = 1)
+	{
+		std::cout << "South ,";
+	}
+	if (CurrentRoom->Exits[3] = 1)
+	{
+		std::cout << "West ,";
+	}
+	if (CurrentRoom->Exits[4] = 1)
+	{
+		std::cout << "Up ,";
+	}
+	if (CurrentRoom->Exits[5] = 1)
+	{
+		std::cout << "Down";
+	}
+	std::cout << std::endl;
 }
 
 void Engine::DisplayChar()

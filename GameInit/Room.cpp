@@ -9,5 +9,5 @@ Room::Room(int i, int n, int e, int s, int w, int u, int d, std::string desc)
 	Exits.push_back(w);
 	Exits.push_back(u);
 	Exits.push_back(d);
-
+	this->desc = desc;
 }

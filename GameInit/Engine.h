@@ -31,7 +31,12 @@ public:
 	Player* LoadChar();
 	void DeleteChar();
 
+	//Display Funcs
+	void DisplayRoom();
 	void DisplayChar();
+
+	
+	
 
 private:
 
@@ -39,6 +44,6 @@ private:
 	bool Playing;
 	std::string GameName;
 	Player* CurrentPlayer = nullptr;
-	World* World = nullptr;
+	World* CurrentWorld = nullptr;
 };
 

@@ -8,6 +8,7 @@ public:
 	~World();
 
 	std::string Name;
+	Area* CurrentArea;
 	std::vector<Area> Areas;
 };
 
