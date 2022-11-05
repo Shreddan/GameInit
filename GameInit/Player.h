@@ -23,7 +23,6 @@ public:
 	int Health;
 	int ManaMax;
 	int Mana;
-	//int Encumbrance;
 	int Location;
 
 	// Player Stats

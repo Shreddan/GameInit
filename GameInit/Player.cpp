@@ -14,7 +14,6 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 	this->Health = this->HealthMax;
 	this->ManaMax = mm;
 	this->Mana = this->ManaMax;
-	//this->Encumbrance = 
 	this->Location = loc;
 
 	this->Strength = str;
