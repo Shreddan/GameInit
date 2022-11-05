@@ -110,6 +110,7 @@ void Engine::Prompt()
 		case 1:
 		{
 			DisplayRoom();
+			Move();
 			break;
 		}
 		case 2:
@@ -133,32 +134,39 @@ void Engine::Prompt()
 
 void Engine::Input(int c)
 {
+	
 	switch (State)
 	{
 		case 1:
 		{
+			
+			break;
+		}
+		case 2:
+		{
 			switch (c)
 			{
-				case 1:
-				{
-					DisplayChar();
-					break;
-				}
-				case 2:
-				{
-					break;
-				}
-				case 3:
-				{
-					break;
-				}
-				case 4:
-				{
-					State = 0;
-					CurrentPlayer = nullptr;
-					Sleep(500);
-					Login();
-				}
+			case 1:
+			{
+				DisplayChar();
+
+				break;
+			}
+			case 2:
+			{
+				break;
+			}
+			case 3:
+			{
+				break;
+			}
+			case 4:
+			{
+				State = 0;
+				CurrentPlayer = nullptr;
+				Sleep(500);
+				Login();
+			}
 			}
 			break;
 		}
@@ -183,35 +191,110 @@ void Engine::DeleteChar()
 {
 }
 
+void Engine::Move()
+{
+	std::string mv;
+
+	std::cin >> mv;
+	
+	if (mv == "n" || mv == "north")
+	{
+		if (GetCurrentRoom()->Exits[0] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[0];
+		}
+		else
+		{
+			std::cout << "There is no exit North" << std::endl;
+		}
+	}
+	else if (mv == "e" || mv == "east")
+	{
+		if (GetCurrentRoom()->Exits[1] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[1];
+		}
+		else
+		{
+			std::cout << "There is no exit East" << std::endl;
+		}
+	}
+	else if (mv == "s" || mv == "south")
+	{
+		if (GetCurrentRoom()->Exits[2] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[2];
+		}
+		else
+		{
+			std::cout << "There is no exit South" << std::endl;
+		}
+	}
+	else if (mv == "w" || mv == "west")
+	{
+		if (GetCurrentRoom()->Exits[3] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[3];
+		}
+		else
+		{
+			std::cout << "There is no exit West" << std::endl;
+		}
+	}
+	else if (mv == "u" || mv == "up")
+	{
+		if (GetCurrentRoom()->Exits[4] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[4];
+		}
+		else
+		{
+			std::cout << "There is no exit Up" << std::endl;
+		}
+	}
+	else if (mv == "d" || mv == "down")
+	{
+		if (GetCurrentRoom()->Exits[5] != 0)
+		{
+			CurrentPlayer->Location = GetCurrentRoom()->Exits[5];
+		}
+		else
+		{
+			std::cout << "There is no exit Down" << std::endl;
+		}
+	}
+
+}
+
 void Engine::DisplayRoom()
 {
-	Room* CurrentRoom = &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location];
+	CurrentRoom = GetCurrentRoom();
 
 	std::cout << std::endl;
 	std::cout << CurrentRoom->desc << std::endl;
 
 	std::cout << "Exits : ";
-	if (CurrentRoom->Exits[0] == 1)
+	if (CurrentRoom->Exits[0] != 0)
 	{
 		std::cout << "North ,";
 	}
-	if (CurrentRoom->Exits[1] == 1)
+	if (CurrentRoom->Exits[1] != 0)
 	{
 		std::cout << "East ,";
 	}
-	if (CurrentRoom->Exits[2] == 1)
+	if (CurrentRoom->Exits[2] != 0)
 	{
 		std::cout << "South ,";
 	}
-	if (CurrentRoom->Exits[3] == 1)
+	if (CurrentRoom->Exits[3] != 0)
 	{
 		std::cout << "West ,";
 	}
-	if (CurrentRoom->Exits[4] == 1)
+	if (CurrentRoom->Exits[4] != 0)
 	{
 		std::cout << "Up ,";
 	}
-	if (CurrentRoom->Exits[5] == 1)
+	if (CurrentRoom->Exits[5] != 0)
 	{
 		std::cout << "Down";
 	}
@@ -237,4 +320,9 @@ void Engine::DisplayChar()
 	std::cout << std::endl;
 #endif // _DEBUG
 
+}
+
+Room* Engine::GetCurrentRoom()
+{
+	return &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location];
 }

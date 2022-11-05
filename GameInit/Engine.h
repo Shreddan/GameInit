@@ -31,11 +31,15 @@ public:
 	Player* LoadChar();
 	void DeleteChar();
 
+	void Move();
+
 	//Display Funcs
 	void DisplayRoom();
 	void DisplayChar();
 
 	
+
+	Room* GetCurrentRoom();
 	
 
 private:
@@ -45,5 +49,6 @@ private:
 	std::string GameName;
 	Player* CurrentPlayer = nullptr;
 	World* CurrentWorld = nullptr;
+	Room* CurrentRoom = nullptr;
 };
 
