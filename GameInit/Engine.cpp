@@ -177,7 +177,7 @@ void Engine::Input(int c)
 Player* Engine::CreateChar()
 {
 #if _DEBUG
-	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1, 0);
+	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1, 1);
 #endif
 	return CurrentPlayer;
 }
@@ -193,7 +193,8 @@ void Engine::DeleteChar()
 
 void Engine::Move()
 {
-	std::string mv;
+	std::cout << std::endl;
+	std::string mv = "";
 
 	std::cin >> mv;
 	
@@ -263,12 +264,23 @@ void Engine::Move()
 			std::cout << "There is no exit Down" << std::endl;
 		}
 	}
-
+	else if (mv == "c")
+	{
+		State = 2;
+	}
+	else
+	{
+		return;
+	}
+	std::cout << std::endl;
 }
 
 void Engine::DisplayRoom()
 {
-	CurrentRoom = GetCurrentRoom();
+	if (CurrentRoom != GetCurrentRoom())
+	{
+		CurrentRoom = GetCurrentRoom();
+	}
 
 	std::cout << std::endl;
 	std::cout << CurrentRoom->desc << std::endl;
@@ -324,5 +336,5 @@ void Engine::DisplayChar()
 
 Room* Engine::GetCurrentRoom()
 {
-	return &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location];
+	return &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location - 1];
 }

@@ -10,7 +10,7 @@ class Player
 public:
 
 	//Player();
-	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc = 0);
+	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc);
 	~Player();
 
 //TODO : Make private and add Getters/Setters
