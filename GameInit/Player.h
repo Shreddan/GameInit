@@ -39,7 +39,7 @@ public:
 	std::vector<Item> Inventory;
 	std::vector<Item> Equipped;
 	//TODO: Quest System
-	//std::vector<Quest> Questlog;
+	// Quest log? Token System?
 
 
 };
