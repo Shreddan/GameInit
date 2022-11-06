@@ -13,7 +13,7 @@ public:
 	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc);
 	~Player();
 
-//TODO : Make private and add Getters/Setters
+//TODO : Make private and add Getters/Setters | Player.h
 	//Base vars
 	std::string Name;
 	int Level;
