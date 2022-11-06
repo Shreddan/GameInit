@@ -10,6 +10,8 @@ Engine::Engine()
 Engine::~Engine()
 {
 	delete CurrentPlayer;
+	delete CurrentWorld;
+	delete CurrentRoom;
 }
 
 void Engine::Login()
@@ -130,7 +132,7 @@ void Engine::Prompt()
 	Input(choice);
 	Sleep(400);
 
-}
+} 
 
 void Engine::Input(int c)
 {
@@ -200,9 +202,9 @@ void Engine::Move()
 	
 	if (mv == "n" || mv == "north")
 	{
-		if (GetCurrentRoom()->Exits[0] != 0)
+		if (CurrentRoom->Exits[0] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[0];
+			CurrentPlayer->Location = CurrentRoom->Exits[0];
 		}
 		else
 		{
@@ -211,9 +213,9 @@ void Engine::Move()
 	}
 	else if (mv == "e" || mv == "east")
 	{
-		if (GetCurrentRoom()->Exits[1] != 0)
+		if (CurrentRoom->Exits[1] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[1];
+			CurrentPlayer->Location = CurrentRoom->Exits[1];
 		}
 		else
 		{
@@ -222,9 +224,9 @@ void Engine::Move()
 	}
 	else if (mv == "s" || mv == "south")
 	{
-		if (GetCurrentRoom()->Exits[2] != 0)
+		if (CurrentRoom->Exits[2] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[2];
+			CurrentPlayer->Location = CurrentRoom->Exits[2];
 		}
 		else
 		{
@@ -233,9 +235,9 @@ void Engine::Move()
 	}
 	else if (mv == "w" || mv == "west")
 	{
-		if (GetCurrentRoom()->Exits[3] != 0)
+		if (CurrentRoom->Exits[3] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[3];
+			CurrentPlayer->Location = CurrentRoom->Exits[3];
 		}
 		else
 		{
@@ -244,9 +246,9 @@ void Engine::Move()
 	}
 	else if (mv == "u" || mv == "up")
 	{
-		if (GetCurrentRoom()->Exits[4] != 0)
+		if (CurrentRoom->Exits[4] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[4];
+			CurrentPlayer->Location = CurrentRoom->Exits[4];
 		}
 		else
 		{
@@ -255,9 +257,9 @@ void Engine::Move()
 	}
 	else if (mv == "d" || mv == "down")
 	{
-		if (GetCurrentRoom()->Exits[5] != 0)
+		if (CurrentRoom->Exits[5] != 0)
 		{
-			CurrentPlayer->Location = GetCurrentRoom()->Exits[5];
+			CurrentPlayer->Location = CurrentRoom->Exits[5];
 		}
 		else
 		{

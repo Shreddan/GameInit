@@ -6,9 +6,9 @@ public:
 	Npc();
 	~Npc();
 
-	std::string Name;
-
-
 	void Interact();
+
+	std::string Name;
+	std::vector<std::string> Dialogue;
 };
 

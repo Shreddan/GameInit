@@ -37,6 +37,9 @@ public:
 
 	std::vector<Item> Inventory;
 	std::vector<Item> Equipped;
+	//TODO : Add a Quest System 
+	//std::vector<Quest> Questlog;
+
 
 };
 
