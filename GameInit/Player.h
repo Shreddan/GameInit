@@ -13,7 +13,8 @@ public:
 	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc);
 	~Player();
 
-//TODO : Make private and add Getters/Setters | Player.h
+//TODO: Make private 
+// Add Getters/Setters
 	//Base vars
 	std::string Name;
 	int Level;
@@ -37,7 +38,7 @@ public:
 
 	std::vector<Item> Inventory;
 	std::vector<Item> Equipped;
-	//TODO : Add a Quest System 
+	//TODO: Quest System
 	//std::vector<Quest> Questlog;
 
 
