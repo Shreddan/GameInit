@@ -4,6 +4,7 @@
 
 #include "Weapon.h"
 #include "Armour.h"
+#include "Quest.h"
 
 class Player
 {
@@ -40,7 +41,7 @@ public:
 	std::vector<Item> Equipped;
 	//TODO: Quest System
 	// Quest log? Token System?
-
+	std::vector<Quest> QuestLog;
 
 };
 

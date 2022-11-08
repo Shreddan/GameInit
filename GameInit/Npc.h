@@ -19,5 +19,7 @@ private:
 	std::string Name;
 	int Location;
 	std::map<int, std::string> Dialogue;
+	bool First;
+
 };
 

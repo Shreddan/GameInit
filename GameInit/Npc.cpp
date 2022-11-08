@@ -4,6 +4,7 @@ Npc::Npc(std::string n, int l)
 {
 	this->Name = n;
 	this->Location = l;
+	this->First = false;
 }
 
 Npc::~Npc()
