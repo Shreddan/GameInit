@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include "Quest.h"
 class Npc : public Entity
 {
 public:
@@ -13,12 +14,14 @@ public:
 	std::string GetDialogue(int i);
 
 	void AddDialogue(int i, std::string s);
+	void AddQuest();
 
 private:
 
 	std::string Name;
 	int Location;
 	std::map<int, std::string> Dialogue;
+	std::vector<Quest> Quests;
 	bool First;
 
 };

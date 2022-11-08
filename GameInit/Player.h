@@ -1,7 +1,4 @@
 #pragma once
-#include <string>
-#include <vector>
-
 #include "Weapon.h"
 #include "Armour.h"
 #include "Quest.h"
@@ -16,6 +13,7 @@ public:
 
 //TODO: Make private 
 // Add Getters/Setters
+
 	//Base vars
 	std::string Name;
 	int Level;
@@ -33,7 +31,7 @@ public:
 	int Wisdom;
 	int Intelligence;
 
-	//Hidden vars 
+	// Hidden vars 
 	int BaseDamage;
 	int BaseDefence;
 
@@ -41,7 +39,8 @@ public:
 	std::vector<Item> Equipped;
 	//TODO: Quest System
 	// Quest log? Token System?
-	std::vector<Quest> QuestLog;
+
+	std::set<Quest> QuestLog;
 
 };
 
