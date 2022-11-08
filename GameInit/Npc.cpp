@@ -28,3 +28,7 @@ std::string Npc::GetDialogue(int i)
 {
 	return Dialogue.at(i);
 }
+
+void Npc::AddDialogue(std::string s)
+{
+}
