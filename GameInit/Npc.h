@@ -12,14 +12,12 @@ public:
 	int GetLocation();
 	std::string GetDialogue(int i);
 
-	void AddDialogue(std::string s);
+	void AddDialogue(int i, std::string s);
 
 private:
 
 	std::string Name;
 	int Location;
-	//TODO: replace with map
-	//would possibly be better for ordering?
-	std::vector<std::string> Dialogue;
+	std::map<int, std::string> Dialogue;
 };
 

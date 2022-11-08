@@ -136,6 +136,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="Npc.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Quest.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Weapon.cpp" />
     <ClCompile Include="World.cpp" />
@@ -149,6 +150,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="Npc.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Quest.h" />
     <ClInclude Include="Room.h" />
     <ClInclude Include="Weapon.h" />
     <ClInclude Include="World.h" />
