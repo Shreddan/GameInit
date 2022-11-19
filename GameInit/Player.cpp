@@ -21,6 +21,7 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 	this->Wisdom = wis;
 	this->Intelligence = intel;
 
+	//These are rough stand in calculations and not representative of the final
 	this->BaseDamage = Strength * 7 / 5;
 	this->BaseDefence = Endurance * 8 / 4;
 }

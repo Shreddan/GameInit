@@ -54,6 +54,7 @@ bool Engine::Update()
 {
 	while (Playing)
 	{
+		std::cout << Breakup << std::endl;
 		Prompt();
 	}
 
@@ -338,5 +339,5 @@ void Engine::DisplayChar()
 
 Room* Engine::GetCurrentRoom()
 {
-	return &CurrentWorld->CurrentArea->Rooms[CurrentPlayer->Location - 1];
+	return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Location - 1];
 }

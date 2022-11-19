@@ -13,6 +13,8 @@ public:
 	int GetLocation();
 	std::string GetDialogue(int i);
 
+
+	void SetLocation(int l) { this->Location = l; };
 	void AddDialogue(int i, std::string s);
 	void AddQuest();
 

@@ -10,6 +10,7 @@
 #include "Action.h"
 #include "Player.h"
 #include "World.h"
+#include "Npc.h"
 
 
 class Engine
@@ -37,8 +38,6 @@ public:
 	void DisplayRoom();
 	void DisplayChar();
 
-	
-
 	Room* GetCurrentRoom();
 	
 
@@ -50,5 +49,9 @@ private:
 	Player* CurrentPlayer = nullptr;
 	World* CurrentWorld = nullptr;
 	Room* CurrentRoom = nullptr;
+
+	std::vector<Npc> Npcs; 
+
+	std::string Breakup = "||><============================================><||";
 };
 

@@ -6,9 +6,15 @@ World::World(std::string n)
 
 	Areas.emplace_back("Tutorial");
 
-	this->CurrentArea = &Areas[0];
+	SetCurrentArea(0);
 }
 
 World::~World()
 {
+	delete CurrentArea;
+}
+
+Area* World::GetCurrentArea()
+{
+	return CurrentArea;
 }

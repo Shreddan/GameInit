@@ -40,7 +40,7 @@ public:
 	//TODO: Quest System
 	// Quest log? Token System?
 
-	std::set<Quest> QuestLog;
+	//std::set<Quest> QuestLog;
 
 };
 
