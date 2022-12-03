@@ -17,3 +17,4 @@ private:
 	std::vector<Area> Areas;
 };
 
+ 

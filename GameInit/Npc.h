@@ -17,6 +17,7 @@ public:
 	void SetLocation(int l) { this->Location = l; };
 	void AddDialogue(int i, std::string s);
 	void AddQuest();
+	void ToggleFirstInteract(bool f) { this->First = f; };
 
 private:
 
