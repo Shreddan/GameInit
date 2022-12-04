@@ -345,6 +345,21 @@ void Engine::DisplayChar()
 
 }
 
+void Engine::DisplayInv()
+{
+	if (CurrentPlayer->Inventory.size() != 0)
+	{
+		for (size_t i = 0; i < CurrentPlayer->Inventory.size(); i++)
+		{
+			std::cout << CurrentPlayer->Inventory[i].GetType() << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << "Inventory is empty" << std::endl;
+	}
+}
+
 Room* Engine::GetCurrentRoom()
 {
 	return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Loc - 1];

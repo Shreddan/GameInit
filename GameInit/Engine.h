@@ -3,6 +3,7 @@
 #include <iostream>	
 #include <iomanip>
 #include <thread>
+#include <fstream>
 #include <windows.h>
 
 
@@ -40,6 +41,7 @@ public:
 	//Display Funcs
 	void DisplayRoom();
 	void DisplayChar();
+	void DisplayInv();
 
 	Room* GetCurrentRoom();
 	

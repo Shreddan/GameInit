@@ -25,5 +25,6 @@ private:
 	int Effect1;
 	int Effect2;
 	int Effect3;
+	bool isWeapon;
 };
 
