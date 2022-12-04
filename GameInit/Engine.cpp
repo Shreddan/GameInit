@@ -107,6 +107,7 @@ void Engine::Prompt()
 	std::cout << " || HP : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax;
 	std::cout << " || MP : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
 	std::cout << std::endl;
+	std::cout << std::endl;
 
 	switch (State)
 	{
@@ -190,6 +191,11 @@ Player* Engine::LoadChar()
 	return CurrentPlayer;
 }
 
+void Engine::SaveChar()
+{
+	
+}
+
 void Engine::DeleteChar()
 {
 }
@@ -205,7 +211,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[0] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[0];
+			CurrentPlayer->Loc = CurrentRoom->Exits[0];
 		}
 		else
 		{
@@ -216,7 +222,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[1] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[1];
+			CurrentPlayer->Loc = CurrentRoom->Exits[1];
 		}
 		else
 		{
@@ -227,7 +233,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[2] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[2];
+			CurrentPlayer->Loc = CurrentRoom->Exits[2];
 		}
 		else
 		{
@@ -238,7 +244,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[3] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[3];
+			CurrentPlayer->Loc = CurrentRoom->Exits[3];
 		}
 		else
 		{
@@ -249,7 +255,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[4] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[4];
+			CurrentPlayer->Loc = CurrentRoom->Exits[4];
 		}
 		else
 		{
@@ -260,7 +266,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[5] != 0)
 		{
-			CurrentPlayer->Location = CurrentRoom->Exits[5];
+			CurrentPlayer->Loc = CurrentRoom->Exits[5];
 		}
 		else
 		{
@@ -275,6 +281,7 @@ void Engine::Move()
 	{
 		return;
 	}
+	std::cout << std::endl;
 	std::cout << std::endl;
 }
 
@@ -314,6 +321,7 @@ void Engine::DisplayRoom()
 		std::cout << "Down";
 	}
 	std::cout << std::endl;
+	std::cout << std::endl;
 }
 
 void Engine::DisplayChar()
@@ -339,5 +347,5 @@ void Engine::DisplayChar()
 
 Room* Engine::GetCurrentRoom()
 {
-	return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Location - 1];
+	return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Loc - 1];
 }

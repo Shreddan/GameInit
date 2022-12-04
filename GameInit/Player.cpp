@@ -14,7 +14,7 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 	this->Health = this->HealthMax;
 	this->ManaMax = mm;
 	this->Mana = this->ManaMax;
-	this->Location = loc;
+	this->Loc = loc;
 
 	this->Strength = str;
 	this->Endurance = end;
@@ -28,5 +28,36 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 
 Player::~Player()
 {
+}
+
+void Player::AddQuest(Quest q)
+{
+	ActiveQuests.push_back(q);
+}
+
+void Player::CompleteQuest()
+{
+}
+
+void Player::DisplayQuests()
+{
+}
+
+void Player::to_json(nlohmann::json& j, const Player& p)
+{
+	j = nlohmann::json
+	{
+		{"Name", p.Name },
+		{"Level", p.Level},
+		{"CurrentExp", p.CurrentExp},
+		{"HealthMax", p.HealthMax},
+		{"ManaMax", p.ManaMax},
+		{"Location", p.Loc},
+		{"Area", p.Aloc},
+		{"Strength", p.Strength},
+		{"Endurance", p.Endurance},
+		{"Wisdom", p.Wisdom},
+		{"Intelligence", p.Intelligence}
+	};
 }
 

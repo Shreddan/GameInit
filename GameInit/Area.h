@@ -11,6 +11,7 @@ public:
 	
 
 	std::string Name;
+	int ID;
 	std::vector<Room> Rooms;
 };
 

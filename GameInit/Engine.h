@@ -5,6 +5,7 @@
 #include <thread>
 #include <windows.h>
 
+
 #define WIN32_LEAN_AND_MEAN
 
 #include "Action.h"
@@ -30,6 +31,8 @@ public:
 	//Player Funcs
 	Player* CreateChar();
 	Player* LoadChar();
+
+	void SaveChar();
 	void DeleteChar();
 
 	void Move();

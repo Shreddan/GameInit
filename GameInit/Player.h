@@ -11,6 +11,14 @@ public:
 	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc);
 	~Player();
 
+	void AddQuest(Quest q);
+	void CompleteQuest();
+
+	void DisplayQuests();
+
+	void to_json(nlohmann::json& j, const Player& p);
+	void from_json();
+
 //TODO: Make private 
 // Add Getters/Setters
 
@@ -23,7 +31,8 @@ public:
 	int Health;
 	int ManaMax;
 	int Mana;
-	int Location;
+	int Aloc;
+	int Loc;
 
 	// Player Stats
 	int Strength;
@@ -38,7 +47,6 @@ public:
 	std::vector<Item> Inventory;
 	std::vector<Item> Equipped;
 	//TODO: Quest System
-	// Quest log? Token System?
 
 	std::vector<Quest> ActiveQuests;
 	std::vector<Quest> CompletedQuests;
