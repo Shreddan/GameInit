@@ -20,6 +20,7 @@ public:
 private:
 
 	int Type;
+	int Wtype;
 	int DamageType;
 	int BaseDamage;
 	int Effect1;

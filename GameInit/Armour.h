@@ -15,6 +15,7 @@ public:
 private:
 
 	int Type;
+	int Atype;
 	int Defence;
 	int Weight;
 };
