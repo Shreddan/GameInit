@@ -25,3 +25,10 @@ int Armour::GetWeightValue()
 {
     return this->Weight;
 }
+
+void Armour::from_json(const nlohmann::json& j, Armour& a)
+{
+    j.at("Type").get_to(a.Type);
+    j.at("Defence").get_to(a.Defence);
+    j.at("Weight").get_to(a.Weight);
+}

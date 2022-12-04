@@ -17,7 +17,7 @@ public:
 	void DisplayQuests();
 
 	void to_json(nlohmann::json& j, const Player& p);
-	void from_json();
+	void from_json(const nlohmann::json& j, Player& p);
 
 //TODO: Make private 
 // Add Getters/Setters

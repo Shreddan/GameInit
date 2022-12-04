@@ -10,6 +10,8 @@ public:
 	int GetDefenceValue();
 	int GetWeightValue();
 
+	void from_json(const nlohmann::json& j, Armour& a);
+
 private:
 
 	int Type;

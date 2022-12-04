@@ -61,3 +61,19 @@ void Player::to_json(nlohmann::json& j, const Player& p)
 	};
 }
 
+void Player::from_json(const nlohmann::json& j, Player& p)
+{
+	j.at("Name").get_to(p.Name);
+	j.at("Level").get_to(p.Level);
+	j.at("CurrentExp").get_to(p.CurrentExp);
+	j.at("HealthMax").get_to(p.HealthMax);
+	j.at("ManaMax").get_to(p.ManaMax);
+	j.at("Location").get_to(p.Loc);
+	j.at("Area").get_to(p.Aloc);
+	j.at("Strength").get_to(p.Strength);
+	j.at("Endurance").get_to(p.Endurance);
+	j.at("Wisdom").get_to(p.Wisdom);
+	j.at("Intelligence").get_to(p.Intelligence);
+}
+
+

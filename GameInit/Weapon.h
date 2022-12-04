@@ -9,6 +9,13 @@ public:
 	~Weapon();
 
 	int GetType();
+	int GetDamageType();
+	int GetBaseDamage();
+	int GetFirstEffect();
+	int GetSecondEffect();
+	int GetLastEffect();
+
+	void from_json(const nlohmann::json& j, Weapon& w);
 
 private:
 
