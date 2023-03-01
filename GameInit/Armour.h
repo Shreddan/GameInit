@@ -3,7 +3,7 @@
 class Armour : public Item
 {
 public:
-	Armour(int t, int d, int w);
+	Armour(int at, int d, int w);
 	~Armour();
 
 	int GetType();

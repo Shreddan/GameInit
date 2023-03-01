@@ -21,6 +21,12 @@ public:
 	Engine();
 	~Engine();
 
+	//Setup
+	void LoadAll();
+	void LoadWeapons();
+	void LoadArmour();
+	
+
 	//Main Engine Funcs
 	void Login();
 	bool Update();

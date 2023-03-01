@@ -44,8 +44,8 @@ public:
 	int BaseDamage;
 	int BaseDefence;
 
-	std::vector<Item> Inventory;
-	std::vector<Item> Equipped;
+	std::vector<Item*> Inventory;
+	std::vector<Item*> Equipped;
 	//TODO: Quest System
 
 	std::vector<Quest> ActiveQuests;

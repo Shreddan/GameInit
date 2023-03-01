@@ -7,13 +7,12 @@ public:
 
 	enum Types
 	{
-		Weapon,
-		Armour,
-		Accessory,
+		Wep,
+		Arm,
+		Acc,
 		Misc
 	};
 	
 	virtual int GetType() = 0;
-	virtual void from_json() = 0;
 };
 

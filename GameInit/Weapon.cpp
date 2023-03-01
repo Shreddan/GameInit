@@ -2,19 +2,26 @@
 
 Weapon::Weapon()
 {
+	this->Type = Wep;
 }
 
-Weapon::Weapon(int t, int dt, int bd, int ef1, int ef2, int ef3)
+Weapon::Weapon(int wt, int dt, int bd, int ef1, int ef2, int ef3)
 {
+	this->Type = Wep;
 }
 
 Weapon::~Weapon()
 {
 }
 
+std::string Weapon::GetName()
+{
+	return this->Name;
+}
+
 int Weapon::GetType()
 {
-	return 0;
+	return this->Type;
 }
 
 int Weapon::GetDamageType()

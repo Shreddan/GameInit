@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameInit", "GameInit\GameInit.vcxproj", "{F23439D9-B170-4259-BFE2-33E3B9541A15}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Weapon Tool", "Weapon Tool\Weapon Tool.vcxproj", "{827F699B-66A3-46F8-B96E-2A6397B74D84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{F23439D9-B170-4259-BFE2-33E3B9541A15}.Release|x64.Build.0 = Release|x64
 		{F23439D9-B170-4259-BFE2-33E3B9541A15}.Release|x86.ActiveCfg = Release|Win32
 		{F23439D9-B170-4259-BFE2-33E3B9541A15}.Release|x86.Build.0 = Release|Win32
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Debug|x64.ActiveCfg = Debug|x64
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Debug|x64.Build.0 = Debug|x64
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Debug|x86.ActiveCfg = Debug|Win32
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Debug|x86.Build.0 = Debug|Win32
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Release|x64.ActiveCfg = Release|x64
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Release|x64.Build.0 = Release|x64
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Release|x86.ActiveCfg = Release|Win32
+		{827F699B-66A3-46F8-B96E-2A6397B74D84}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -5,9 +5,10 @@ class Weapon : public Item
 {
 public:
 	Weapon();
-	Weapon(int t, int dt, int bd, int ef1, int ef2, int ef3 = 0);
+	Weapon(int wt, int dt, int bd, int ef1, int ef2, int ef3 = 0);
 	~Weapon();
 
+	std::string GetName();
 	int GetType();
 	int GetDamageType();
 	int GetBaseDamage();
@@ -19,6 +20,7 @@ public:
 
 private:
 
+	std::string Name;
 	int Type;
 	int Wtype;
 	int DamageType;

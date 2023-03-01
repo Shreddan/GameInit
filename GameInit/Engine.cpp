@@ -14,6 +14,21 @@ Engine::~Engine()
 	delete CurrentRoom;
 }
 
+void Engine::LoadAll()
+{
+	LoadWeapons();
+	LoadArmour();
+}
+
+void Engine::LoadWeapons()
+{
+
+}
+
+void Engine::LoadArmour()
+{
+}
+
 void Engine::Login()
 {
 	int choice = 0;
@@ -351,7 +366,14 @@ void Engine::DisplayInv()
 	{
 		for (size_t i = 0; i < CurrentPlayer->Inventory.size(); i++)
 		{
-			std::cout << CurrentPlayer->Inventory[i].GetType() << std::endl;
+			if (CurrentPlayer->Inventory[i]->GetType() == 0)
+			{
+				Weapon* w = dynamic_cast<Weapon*>(CurrentPlayer->Inventory[i]);
+				if (w != nullptr)
+				{
+					std::cout << "Weapon  |" << w->GetDamageType() << " ¦ " << w->GetBaseDamage() << std::endl;
+				}
+			}
 		}
 	}
 	else
