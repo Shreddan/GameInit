@@ -2,7 +2,7 @@
 
 Engine::Engine()
 {
-	this->GameName = "IhaveNoIdeaYetButSoon";
+	this->GameName = "IHaveNoIdeaYetButSoon";
 	this->Playing = false;
 	this->State = 0;
 }
@@ -16,8 +16,8 @@ Engine::~Engine()
 
 void Engine::LoadAll()
 {
-	LoadWeapons();
-	LoadArmour();
+	//LoadWeapons();
+	//LoadArmour();
 }
 
 void Engine::LoadWeapons()
@@ -32,17 +32,17 @@ void Engine::LoadArmour()
 void Engine::Login()
 {
 	int choice = 0;
-	std::cout << "Welcome to " + GameName + "..." << std::endl;
-	std::cout << "What would you like to do? (enter a number)" << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
+	
+	Output("Welcome to " + GameName + "...");
+	Output("What would you like to do? (enter a number)");
+	Output("\n");
 
-	std::cout << "1. Create Character " << std::endl;
-	std::cout << "2. Load Character " << std::endl;
-	std::cout << "3. Delete Character " << std::endl;
-	std::cout << "4. Help " << std::endl;
-	std::cout << "5. Quit " << std::endl;
-	std::cout << std::endl;
+	Output("1. Create Character ");
+	Output("2. Load Character ");;
+	Output("3. Delete Character ");
+	Output("4. Help ");
+	Output("5. Quit ");
+	Output("\n");
 
 	std::cin >> choice;
 	std::cout << std::endl;
@@ -69,7 +69,7 @@ bool Engine::Update()
 {
 	while (Playing)
 	{
-		std::cout << Breakup << std::endl;
+		Output(Breakup);
 		Prompt();
 	}
 
@@ -118,11 +118,15 @@ void Engine::Choice(int choice)
 void Engine::Prompt()
 {
 	int choice = 0;
-	std::cout << "Level : " << CurrentPlayer->Level << " || Exp : " << CurrentPlayer->CurrentExp << "/" << CurrentPlayer->TNL;
-	std::cout << " || HP : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax;
-	std::cout << " || MP : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
+	Output(" Level : " + std::to_string(CurrentPlayer->Level), false);
+	Output(" || Exp : " + std::to_string(CurrentPlayer->CurrentExp), false);
+	Output("/" + std::to_string(CurrentPlayer->TNL), false);
+	Output(" || HP : " + std::to_string(CurrentPlayer->Health), false);
+	Output("/" + std::to_string(CurrentPlayer->HealthMax), false);
+	Output(" || MP : " + std::to_string(CurrentPlayer->Mana), false);
+	Output("/" + std::to_string(CurrentPlayer->ManaMax));
+	Output("\n");
+	Output("\n");
 
 	switch (State)
 	{
@@ -134,14 +138,14 @@ void Engine::Prompt()
 		}
 		case 2:
 		{
-			std::cout << "1. Character Screen" << std::endl;
-			std::cout << "2. Inventory" << std::endl;
-			std::cout << "3. Skill Screen" << std::endl;
-			std::cout << "4. Quit to Main Menu" << std::endl;
-			std::cout << std::endl;
+			Output("1. Character Screen");
+			Output("2. Inventory");
+			Output("3. Skill Screen");
+			Output("4. Quit to Main Menu"); 
+			Output("\n");
 
 			std::cin >> choice;
-			std::cout << std::endl;
+			Output("\n");
 			
 			break;
 		}
@@ -191,6 +195,19 @@ void Engine::Input(int c)
 		}
 	}
 	
+}
+
+void Engine::Output(std::string s, bool newline)
+{ 
+	if (newline)
+	{
+		std::cout << s << std::endl;
+	}
+	else
+	{
+		std::cout << s;
+	}
+	return;
 }
 
 Player* Engine::CreateChar()

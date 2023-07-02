@@ -1,13 +1,14 @@
 #include "Weapon.h"
+#include "Item.h"
 
 Weapon::Weapon()
 {
-	this->Type = Wep;
+	this->Type = Item::Types::Wep;
 }
 
 Weapon::Weapon(int wt, int dt, int bd, int ef1, int ef2, int ef3)
 {
-	this->Type = Wep;
+	this->Type = Item::Types::Wep;
 }
 
 Weapon::~Weapon()

@@ -1,7 +1,8 @@
 #pragma once
-#include "Item.h"
+#include <json/single_include/nlohmann/json.hpp>
+#include <string>
 
-class Weapon : public Item
+class Weapon
 {
 public:
 	Weapon();

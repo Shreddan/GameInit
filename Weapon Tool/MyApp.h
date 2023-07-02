@@ -9,4 +9,11 @@ public:
 
 };
 
+class MyFrame : public wxFrame
+{
+public:
+    MyFrame();
+    ~MyFrame();
+};
+
 

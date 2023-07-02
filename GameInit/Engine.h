@@ -34,6 +34,7 @@ public:
 
 	void Prompt();
 	void Input(int c);
+	void Output(std::string s, bool newline = true);
 
 	//Player Funcs
 	Player* CreateChar();
@@ -63,6 +64,6 @@ private:
 
 	std::vector<Npc> Npcs; 
 
-	std::string Breakup = "||><============================================><||";
+	std::string Breakup = "|| ><============================================>< ||";
 };
 
