@@ -35,17 +35,17 @@ void Engine::Login()
 	
 	Output("Welcome to " + GameName + "...");
 	Output("What would you like to do? (enter a number)");
-	Output("\n");
+	Output("");
 
 	Output("1. Create Character ");
 	Output("2. Load Character ");;
 	Output("3. Delete Character ");
 	Output("4. Help ");
 	Output("5. Quit ");
-	Output("\n");
+	Output("");
 
 	std::cin >> choice;
-	std::cout << std::endl;
+	Output("");
 
 	Sleep(400);
 	Choice(choice);
@@ -118,15 +118,13 @@ void Engine::Choice(int choice)
 void Engine::Prompt()
 {
 	int choice = 0;
-	Output(" Level : " + std::to_string(CurrentPlayer->Level), false);
-	Output(" || Exp : " + std::to_string(CurrentPlayer->CurrentExp), false);
-	Output("/" + std::to_string(CurrentPlayer->TNL), false);
+	Output("Level : " + std::to_string(CurrentPlayer->Level) + " || Exp : " + std::to_string(CurrentPlayer->CurrentExp) + "/" + std::to_string(CurrentPlayer->TNL), false);
 	Output(" || HP : " + std::to_string(CurrentPlayer->Health), false);
 	Output("/" + std::to_string(CurrentPlayer->HealthMax), false);
 	Output(" || MP : " + std::to_string(CurrentPlayer->Mana), false);
 	Output("/" + std::to_string(CurrentPlayer->ManaMax));
-	Output("\n");
-	Output("\n");
+	Output("");
+	Output("");
 
 	switch (State)
 	{
@@ -142,10 +140,10 @@ void Engine::Prompt()
 			Output("2. Inventory");
 			Output("3. Skill Screen");
 			Output("4. Quit to Main Menu"); 
-			Output("\n");
+			Output("");
 
 			std::cin >> choice;
-			Output("\n");
+			Output("");
 			
 			break;
 		}
@@ -234,7 +232,7 @@ void Engine::DeleteChar()
 
 void Engine::Move()
 {
-	std::cout << std::endl;
+	Output("");
 	std::string mv = "";
 
 	std::cin >> mv;
@@ -247,7 +245,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit North" << std::endl;
+			Output("There is no exit North");
 		}
 	}
 	else if (mv == "e" || mv == "east")
@@ -258,7 +256,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit East" << std::endl;
+			Output("There is no exit East");
 		}
 	}
 	else if (mv == "s" || mv == "south")
@@ -269,7 +267,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit South" << std::endl;
+			Output("There is no exit South");
 		}
 	}
 	else if (mv == "w" || mv == "west")
@@ -280,7 +278,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit West" << std::endl;
+			Output("There is no exit West");
 		}
 	}
 	else if (mv == "u" || mv == "up")
@@ -291,7 +289,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit Up" << std::endl;
+			Output("There is no exit Up");
 		}
 	}
 	else if (mv == "d" || mv == "down")
@@ -302,7 +300,7 @@ void Engine::Move()
 		}
 		else
 		{
-			std::cout << "There is no exit Down" << std::endl;
+			Output("There is no exit Down");
 		}
 	}
 	else if (mv == "c")
@@ -313,8 +311,8 @@ void Engine::Move()
 	{
 		return;
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
+	Output("");
+	Output("");
 }
 
 void Engine::DisplayRoom()
@@ -324,55 +322,55 @@ void Engine::DisplayRoom()
 		CurrentRoom = GetCurrentRoom();
 	}
 
-	std::cout << std::endl;
-	std::cout << CurrentRoom->desc << std::endl;
+	Output("");
+	Output(CurrentRoom->desc);
 
-	std::cout << "Exits : ";
+	Output("Exits : ", false);
 	if (CurrentRoom->Exits[0] != 0)
 	{
-		std::cout << "North ,";
+		Output("North ,", false);
 	}
 	if (CurrentRoom->Exits[1] != 0)
 	{
-		std::cout << "East ,";
+		Output("East ,", false);
 	}
 	if (CurrentRoom->Exits[2] != 0)
 	{
-		std::cout << "South ,";
+		Output("South ,", false);
 	}
 	if (CurrentRoom->Exits[3] != 0)
 	{
-		std::cout << "West ,";
+		Output("West ,", false);
 	}
 	if (CurrentRoom->Exits[4] != 0)
 	{
-		std::cout << "Up ,";
+		Output("Up ,", false);
 	}
 	if (CurrentRoom->Exits[5] != 0)
 	{
-		std::cout << "Down";
+		Output("Down", false);
 	}
-	std::cout << std::endl;
-	std::cout << std::endl;
+	Output("");
+	Output("");
 }
 
 void Engine::DisplayChar()
 {
-	std::cout << CurrentPlayer->Name << std::endl;
-	std::cout << "Level : " << CurrentPlayer->Level  << std::endl;
-	std::cout << "Experience : " << CurrentPlayer->CurrentExp << "/" << CurrentPlayer->TNL << std::endl;
-	std::cout << "Health : " << CurrentPlayer->Health << "/" << CurrentPlayer->HealthMax << std::endl;
-	std::cout << "Mana : " << CurrentPlayer->Mana << "/" << CurrentPlayer->ManaMax << std::endl;
-	std::cout << "Strength : " << CurrentPlayer->Strength << std::endl;
-	std::cout << "Endurance : " << CurrentPlayer->Endurance << std::endl;
-	std::cout << "Wisdom : " << CurrentPlayer->Wisdom << std::endl;
-	std::cout << "Intelligence : " << CurrentPlayer->Intelligence << std::endl;
-	std::cout << std::endl;
+	Output(CurrentPlayer->Name);
+	Output("Level : " + std::to_string(CurrentPlayer->Level));
+	Output("Experience : " + std::to_string(CurrentPlayer->CurrentExp) + "/" + std::to_string(CurrentPlayer->TNL));
+	Output("Health : " + std::to_string(CurrentPlayer->Health) + "/" + std::to_string(CurrentPlayer->HealthMax));
+	Output("Mana : " + std::to_string(CurrentPlayer->Mana) + "/" + std::to_string(CurrentPlayer->ManaMax));
+	Output("Strength : " + std::to_string(CurrentPlayer->Strength));
+	Output("Endurance : " + std::to_string(CurrentPlayer->Endurance));
+	Output("Wisdom : " + std::to_string(CurrentPlayer->Wisdom));
+	Output("Intelligence : " + std::to_string(CurrentPlayer->Intelligence));
+	Output("\n");
 
 #if _DEBUG
-	std::cout << "BaseDamage : " << CurrentPlayer->BaseDamage << std::endl;
-	std::cout << "BaseDefence : " << CurrentPlayer->BaseDefence << std::endl;
-	std::cout << std::endl;
+	Output("BaseDamage : " + std::to_string(CurrentPlayer->BaseDamage));
+	Output("BaseDefence : " + std::to_string(CurrentPlayer->BaseDefence));
+	Output("\n");
 #endif // _DEBUG
 
 }
@@ -388,14 +386,14 @@ void Engine::DisplayInv()
 				Weapon* w = dynamic_cast<Weapon*>(CurrentPlayer->Inventory[i]);
 				if (w != nullptr)
 				{
-					std::cout << "Weapon  |" << w->GetDamageType() << " ¦ " << w->GetBaseDamage() << std::endl;
+					Output("Weapon  |" + std::to_string(w->GetDamageType()) + " ¦ " + std::to_string(w->GetBaseDamage()));
 				}
 			}
 		}
 	}
 	else
 	{
-		std::cout << "Inventory is empty" << std::endl;
+		Output("Inventory is empty");
 	}
 }
 
