@@ -2,6 +2,7 @@
 #include "Weapon.h"
 #include "Armour.h"
 #include "Quest.h"
+#include "Skills.h"
 
 class Player
 {
@@ -50,6 +51,8 @@ public:
 
 	std::vector<Quest> ActiveQuests;
 	std::vector<Quest> CompletedQuests;
+
+	std::vector<Skills> Skills;
 
 };
 

@@ -119,10 +119,8 @@ void Engine::Prompt()
 {
 	int choice = 0;
 	Output("Level : " + std::to_string(CurrentPlayer->Level) + " || Exp : " + std::to_string(CurrentPlayer->CurrentExp) + "/" + std::to_string(CurrentPlayer->TNL), false);
-	Output(" || HP : " + std::to_string(CurrentPlayer->Health), false);
-	Output("/" + std::to_string(CurrentPlayer->HealthMax), false);
-	Output(" || MP : " + std::to_string(CurrentPlayer->Mana), false);
-	Output("/" + std::to_string(CurrentPlayer->ManaMax));
+	Output(" || HP : " + std::to_string(CurrentPlayer->Health) + "/" + std::to_string(CurrentPlayer->HealthMax), false);
+	Output(" || MP : " + std::to_string(CurrentPlayer->Mana) + "/" + std::to_string(CurrentPlayer->ManaMax));
 	Output("");
 	Output("");
 
@@ -139,7 +137,8 @@ void Engine::Prompt()
 			Output("1. Character Screen");
 			Output("2. Inventory");
 			Output("3. Skill Screen");
-			Output("4. Quit to Main Menu"); 
+			Output("4. Save");
+			Output("5. Quit to Main Menu"); 
 			Output("");
 
 			std::cin >> choice;
@@ -181,7 +180,7 @@ void Engine::Input(int c)
 			{
 				break;
 			}
-			case 4:
+			case 5:
 			{
 				State = 0;
 				CurrentPlayer = nullptr;
