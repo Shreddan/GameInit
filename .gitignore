@@ -363,3 +363,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Weapon Tool/Weapon Tool.vcxproj.filters
+/Weapon Tool/Weapon Tool.vcxproj
