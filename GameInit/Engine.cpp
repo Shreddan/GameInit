@@ -148,7 +148,6 @@ void Engine::Prompt()
 		}
 	}
 	Input(choice);
-	Sleep(400);
 
 } 
 
@@ -184,7 +183,6 @@ void Engine::Input(int c)
 			{
 				State = 0;
 				CurrentPlayer = nullptr;
-				Sleep(500);
 				Login();
 			}
 			}
