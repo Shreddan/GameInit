@@ -4,7 +4,9 @@
 #include <iomanip>
 #include <thread>
 #include <fstream>
+#include <filesystem>
 #include <windows.h>
+#include <exception>
 
 
 #define WIN32_LEAN_AND_MEAN
@@ -25,6 +27,7 @@ public:
 	void LoadAll();
 	void LoadWeapons();
 	void LoadArmour();
+	void PopulateSaves();
 	
 
 	//Main Engine Funcs
@@ -35,6 +38,7 @@ public:
 	void Prompt();
 	void Input(int c);
 	void Output(std::string s, bool newline = true);
+	void CheckRoot();
 
 	//Player Funcs
 	Player* CreateChar();
@@ -53,6 +57,7 @@ public:
 	Room* GetCurrentRoom();
 	
 
+
 private:
 
 	int State;
@@ -61,6 +66,13 @@ private:
 	Player* CurrentPlayer = nullptr;
 	World* CurrentWorld = nullptr;
 	Room* CurrentRoom = nullptr;
+
+	const std::filesystem::path players{"Game/Players"};
+	const std::filesystem::path root{"Game"};
+	std::filesystem::path ppath;
+	
+
+	std::vector<std::filesystem::directory_entry> Players;
 
 	std::vector<Npc> Npcs; 
 

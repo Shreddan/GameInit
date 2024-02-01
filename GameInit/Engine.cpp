@@ -5,6 +5,10 @@ Engine::Engine()
 	this->GameName = "IHaveNoIdeaYetButSoon";
 	this->Playing = false;
 	this->State = 0;
+	CheckRoot();
+	CheckRoot();
+
+	PopulateSaves();
 }
 
 Engine::~Engine()
@@ -27,6 +31,15 @@ void Engine::LoadWeapons()
 
 void Engine::LoadArmour()
 {
+}
+
+void Engine::PopulateSaves()
+{
+	for (auto const& dir_entry : std::filesystem::directory_iterator(players))
+	{
+		Players.push_back(dir_entry);
+	}
+
 }
 
 void Engine::Login()
@@ -179,6 +192,11 @@ void Engine::Input(int c)
 			{
 				break;
 			}
+			case 4:
+			{
+				SaveChar();
+				break;
+			}
 			case 5:
 			{
 				State = 0;
@@ -205,22 +223,94 @@ void Engine::Output(std::string s, bool newline)
 	return;
 }
 
+void Engine::CheckRoot()
+{
+	if (!std::filesystem::is_directory(root))
+	{
+		std::filesystem::create_directory(root);
+
+		if (!std::filesystem::is_directory(players))
+		{
+
+			std::filesystem::create_directory(players);
+		}
+	}
+
+}
+
 Player* Engine::CreateChar()
 {
 #if _DEBUG
-	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1, 1);
+	CurrentPlayer = new Player("Danicron", 1, 0, 15, 10, 1, 1, 1, 1, 0, 0);
+	ppath = "Game/Players/" + CurrentPlayer->Name;
 #endif
 	return CurrentPlayer;
 }
 
 Player* Engine::LoadChar()
 {
-	return CurrentPlayer;
+	Output("Character List : ");
+	Output("");
+
+	std::string n;
+
+	for (auto const& player : Players)
+	{
+		Output(player.path().filename().string());
+	}
+
+	Output("");
+
+	Output("Enter name of Character to load save");
+
+	std::cin >> n;
+
+	if (std::filesystem::is_directory(n))
+	{
+		Output("Player found");
+		return CurrentPlayer;
+	}
+	
 }
 
 void Engine::SaveChar()
 {
-	
+	try
+	{
+		nlohmann::json j = *CurrentPlayer;
+
+		std::filesystem::current_path(players);
+
+		if (!std::filesystem::is_directory(CurrentPlayer->Name))
+		{
+			std::filesystem::create_directory(CurrentPlayer->Name);
+			Output("Character Directory Created!");
+			
+		}
+
+		std::ofstream ofs(CurrentPlayer->Name + ".json");
+
+		if (ofs.is_open())
+		{
+			if (!j.empty())
+			{
+				ofs << j.dump();
+				ofs.close();
+				Output("Character Saved!");
+			}
+			else
+			{
+				Output("Json string empty :(");
+				ofs.close();
+			}
+		}
+
+	}
+	catch (nlohmann::json::exception e)
+	{
+		Output(e.what());
+	}
+
 }
 
 void Engine::DeleteChar()
@@ -238,7 +328,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[0] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[0];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[0];
 		}
 		else
 		{
@@ -249,7 +339,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[1] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[1];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[1];
 		}
 		else
 		{
@@ -260,7 +350,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[2] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[2];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[2];
 		}
 		else
 		{
@@ -271,7 +361,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[3] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[3];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[3];
 		}
 		else
 		{
@@ -282,7 +372,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[4] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[4];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[4];
 		}
 		else
 		{
@@ -293,7 +383,7 @@ void Engine::Move()
 	{
 		if (CurrentRoom->Exits[5] != 0)
 		{
-			CurrentPlayer->Loc = CurrentRoom->Exits[5];
+			CurrentPlayer->Loc.second = CurrentRoom->Exits[5];
 		}
 		else
 		{
@@ -383,7 +473,7 @@ void Engine::DisplayInv()
 				Weapon* w = dynamic_cast<Weapon*>(CurrentPlayer->Inventory[i]);
 				if (w != nullptr)
 				{
-					Output("Weapon  |" + std::to_string(w->GetDamageType()) + " ¦ " + std::to_string(w->GetBaseDamage()));
+					Output("Weapon  |" + std::to_string(w->DamageType) + " ¦ " + std::to_string(w->BaseDamage));
 				}
 			}
 		}
@@ -396,5 +486,8 @@ void Engine::DisplayInv()
 
 Room* Engine::GetCurrentRoom()
 {
-	return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Loc - 1];
+	if (CurrentPlayer->Loc.second > 0)
+		return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Loc.second - 1];
+	else
+		return &CurrentWorld->GetCurrentArea()->Rooms[CurrentPlayer->Loc.second];
 }

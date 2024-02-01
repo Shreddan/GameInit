@@ -1,15 +1,21 @@
 #pragma once
-#include "Weapon.h"
+
+#include <tuple>
+
 #include "Armour.h"
 #include "Quest.h"
 #include "Skills.h"
+#include "Weapon.h"
+
+
+
 
 class Player
 {
 public:
 
-	//Player();
-	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc);
+	Player() = default;
+	Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int area, int room);
 	~Player();
 
 	void AddQuest(Quest q);
@@ -17,8 +23,7 @@ public:
 
 	void DisplayQuests();
 
-	void to_json(nlohmann::json& j, const Player& p);
-	void from_json(const nlohmann::json& j, Player& p);
+	
 
 //TODO: Make private 
 // Add Getters/Setters
@@ -32,8 +37,7 @@ public:
 	int Health;
 	int ManaMax;
 	int Mana;
-	int Aloc;
-	int Loc;
+	std::pair<int, int> Loc;
 
 	// Player Stats
 	int Strength;
@@ -56,3 +60,5 @@ public:
 
 };
 
+void to_json(nlohmann::json& j, const Player& p);
+void from_json(const nlohmann::json& j, Player& p);

@@ -4,7 +4,7 @@
 //{
 //}
 
-Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int loc)
+Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, int wis, int intel, int area, int room)
 {
 	this->Name = n;
 	this->Level = l;
@@ -14,7 +14,7 @@ Player::Player(std::string n, int l, int exp, int hm, int mm, int str, int end, 
 	this->Health = this->HealthMax;
 	this->ManaMax = mm;
 	this->Mana = this->ManaMax;
-	this->Loc = loc;
+	this->Loc = std::make_pair(area,room);
 
 	this->Strength = str;
 	this->Endurance = end;
@@ -43,7 +43,7 @@ void Player::DisplayQuests()
 {
 }
 
-void Player::to_json(nlohmann::json& j, const Player& p)
+void to_json(nlohmann::json& j, const Player& p)
 {
 	j = nlohmann::json
 	{
@@ -53,7 +53,6 @@ void Player::to_json(nlohmann::json& j, const Player& p)
 		{"HealthMax", p.HealthMax},
 		{"ManaMax", p.ManaMax},
 		{"Location", p.Loc},
-		{"Area", p.Aloc},
 		{"Strength", p.Strength},
 		{"Endurance", p.Endurance},
 		{"Wisdom", p.Wisdom},
@@ -61,7 +60,7 @@ void Player::to_json(nlohmann::json& j, const Player& p)
 	};
 }
 
-void Player::from_json(const nlohmann::json& j, Player& p)
+void from_json(const nlohmann::json& j, Player& p)
 {
 	j.at("Name").get_to(p.Name);
 	j.at("Level").get_to(p.Level);
@@ -69,7 +68,6 @@ void Player::from_json(const nlohmann::json& j, Player& p)
 	j.at("HealthMax").get_to(p.HealthMax);
 	j.at("ManaMax").get_to(p.ManaMax);
 	j.at("Location").get_to(p.Loc);
-	j.at("Area").get_to(p.Aloc);
 	j.at("Strength").get_to(p.Strength);
 	j.at("Endurance").get_to(p.Endurance);
 	j.at("Wisdom").get_to(p.Wisdom);

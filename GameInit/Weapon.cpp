@@ -15,43 +15,47 @@ Weapon::~Weapon()
 {
 }
 
-std::string Weapon::GetName()
+//std::string Weapon::GetName()
+//{
+//	return this->Name;
+//}
+//
+//int Weapon::GetType()
+//{
+//	return this->Type;
+//}
+//
+//int Weapon::GetDamageType()
+//{
+//	return this->DamageType;
+//}
+//
+//int Weapon::GetBaseDamage()
+//{
+//	return this->BaseDamage;
+//}
+//
+//int Weapon::GetFirstEffect()
+//{
+//	return this->Effect1;
+//}
+//
+//int Weapon::GetSecondEffect()
+//{
+//	return this->Effect2;
+//}
+//
+//int Weapon::GetLastEffect()
+//{
+//	return this->Effect3;
+//}
+
+
+void to_json(nlohmann::json& j, const Weapon& w)
 {
-	return this->Name;
 }
 
-int Weapon::GetType()
-{
-	return this->Type;
-}
-
-int Weapon::GetDamageType()
-{
-	return this->DamageType;
-}
-
-int Weapon::GetBaseDamage()
-{
-	return this->BaseDamage;
-}
-
-int Weapon::GetFirstEffect()
-{
-	return this->Effect1;
-}
-
-int Weapon::GetSecondEffect()
-{
-	return this->Effect2;
-}
-
-int Weapon::GetLastEffect()
-{
-	return this->Effect3;
-}
-
-
-void Weapon::from_json(const nlohmann::json& j, Weapon& w)
+void from_json(const nlohmann::json& j, Weapon& w)
 {
 	j.at("Type").get_to(w.Type);
 	j.at("DamageType").get_to(w.DamageType);
